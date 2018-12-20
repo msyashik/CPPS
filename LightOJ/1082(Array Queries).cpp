@@ -71,12 +71,13 @@ int main()
         
         while(m--)
         {
-			      scanf("%lld %lld", &a, &b);
+            scanf("%lld %lld", &a, &b);
 			
-			      ll minn = query(1,1,n,a,b);
+	    ll minn = query(1,1,n,a,b);
 				
-			      printf("%lld\n", minn);
-		    }
+	    printf("%lld\n", minn);
+		    
+	}
 	}
 	
 	return 0;
