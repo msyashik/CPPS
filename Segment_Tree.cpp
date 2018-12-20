@@ -23,15 +23,15 @@ void tree(ll node, ll l, ll r)
 	
 	else
 	{
-		ll left = node *2;
-		ll right = (node * 2) + 1;
+	    ll left = node *2;
+	    ll right = (node * 2) + 1;
 		
-		ll mid = (l+r) / 2;
+            ll mid = (l+r) / 2;
 		
-		tree(left, l, mid);
-		tree(right, mid+1, r);
+	    tree(left, l, mid);
+	    tree(right, mid+1, r);
 		
-		parent[node] = parent[left] + parent[right];
+	    parent[node] = parent[left] + parent[right];
 	}
 }
 
@@ -55,8 +55,8 @@ void update(ll node, ll l, ll r, ll i, ll newvalue)
 	if(r < i || l > i) return;
 	if(l >= i && r <= i)
 	{
-		parent[node] = newvalue;
-		return;
+	    parent[node] = newvalue;
+	    return;
 	}
 	
 	ll left = node * 2;
@@ -71,7 +71,7 @@ void update(ll node, ll l, ll r, ll i, ll newvalue)
 
 int main()
 {
-	  IOS
+    IOS
 	
     ll n;
 
@@ -83,11 +83,11 @@ int main()
     
     cout << query(1,1,n,1,5) << "\n";
     
-	update(1,1,n,4,10);
+    update(1,1,n,4,10);
 	
-	cout << query(1,1,n,1,5) << "\n";
+    cout << query(1,1,n,1,5) << "\n";
 	
-	return 0;
+    return 0;
 }
 
 /*
