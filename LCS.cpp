@@ -1,4 +1,4 @@
-//longest common subseqence
+//longest common subsequence
 //shafayets planet
 
 #include <bits/stdc++.h>
