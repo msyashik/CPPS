@@ -1,71 +1,35 @@
-//LIS using recursion
-//learned from BACS(Youtube)
-
 #include <bits/stdc++.h>
 
 using namespace std;
 
 #define ll long long
-#define  ON_THE_WAY_TO_SPECIALIST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
-#define mod 1000000007
+#define  IOS ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+#define MAX 1000
 
-int arr[] = {1,5,3,4,8,-2,9,3};
-int memo[100][100];
+int memo[MAX][MAX];
+int arr[MAX];
+int lis[MAX];
+int len;
 
-int lis(int i, int prev)
+int rec_lis(int i, int prev) //LIS using recursive dp
 {	
-	if(i == 8) return 0;
+	if(i == len) return 0;
     
     if(memo[i][prev] != -1) return memo[i][prev];
     	
 	int ans1, ans2;
 	
-	ans1 = lis(i+1, prev);
+	ans1 = rec_lis(i+1, prev);
     	
 	if(arr[i] > prev)
 	{
-		ans2 = lis(i+1, arr[i]) + 1;
+		ans2 = rec_lis(i+1, arr[i]) + 1;
 	}
 	else ans2 = 0;
 	
 	return memo[i][prev] = max(ans1, ans2);
 }
-
-
-int main()
-{
-	//ON_THE_WAY_TO_SPECIALIST
-	
-	
-	memset(memo, -1, sizeof(memo));
-	
-	cout << lis(0, 0);
-	
-	
-	return 0;
-}
-/*
-*
-*
-*
-*
-*/
-
-//LIS using for loop
-//Complexity O(n^2)
-//learned from Tusher Roy(Youtube)
-
-#include <bits/stdc++.h>
-
-using namespace std;
-
-#define MAX 1000
-
-int arr[MAX];
-int lis[MAX];
-int len;
-
-void func()
+void func()   //LIS using for loop
 {
     for(int i = 0; i < len; i++)
     {
@@ -95,6 +59,7 @@ void func()
 	return;
 }
 
+
 int main()
 {
 	int n;
@@ -109,6 +74,10 @@ int main()
 	len = n;
 	
 	func();
+	
+	memset(memo, -1, sizeof(memo));
+	
+	cout << rec_lis(0,0);
 	
 	return 0;
 }
