@@ -11,7 +11,7 @@ int arr[MAX];
 int lis[MAX];
 int len;
 
-int rec_lis(int i, int prev) //LIS using recursive dp
+int rec_lis(int i, int prev) //LIS using recursive dp // complexity : exponential time
 {	
 	if(i == len) return 0;
     
@@ -29,7 +29,7 @@ int rec_lis(int i, int prev) //LIS using recursive dp
 	
 	return memo[i][prev] = max(ans1, ans2);
 }
-void func()   //LIS using for loop
+void func()   //LIS using for loop // complexity : O(n^2)
 {
     for(int i = 0; i < len; i++)
     {
