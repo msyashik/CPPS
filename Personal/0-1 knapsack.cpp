@@ -6,7 +6,6 @@
 using namespace std;
 
 #define ll long long
-#define  ON_THE_WAY_TO_SPECIALIST ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 #define MAX 1000 // give your desired value
 
 int weight[MAX];
@@ -36,9 +35,8 @@ int knap(int i, int unit)
 
 int main()
 {
-	ON_THE_WAY_TO_SPECIALIST
 
-    memset(dp, -1, sizeof(dp));
+        memset(dp, -1, sizeof(dp));
 	memset(parent, -1, sizeof(parent));
 	
 	int n;
@@ -56,10 +54,10 @@ int main()
 	
 	cout << ans << "\n"; // max profit 
     	
-    int coin;
+        int coin;
     	
-    while(ans > 0) // the items which was selected 
-    {	
+        while(ans > 0) // the items which was selected 
+        {	
 	    coin = parent[ans];
 	    
 	    cout << cost[coin] << " ";
