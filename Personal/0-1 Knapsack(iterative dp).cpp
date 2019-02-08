@@ -1,5 +1,6 @@
 // 0-1 knapsack
 // iterative dp
+//learned from Tushar Roy(https://www.youtube.com/watch?v=8LusJS5-AGo)
 
 #include <bits/stdc++.h>
 
@@ -44,12 +45,12 @@ int main()
 		}
 	}
 	
-    cout << dp[n-1][CAP] << "\n";
+    cout << dp[n-1][CAP] << "\n"; // max profit
     
     int cap = CAP;
     int m = n - 1;
     
-    while(cap > 0) 
+    while(cap > 0) // searching the items which was used to make the max profit
     {
 		if(dp[m][cap] == dp[m-1][cap])
 		{
