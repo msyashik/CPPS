@@ -28,7 +28,7 @@ int knap(int i, int unit)
 	if((unit + weight[i]) <= CAP) ans2 = knap(i+1, unit + weight[i]) + cost[i];
 	else ans2 = 0;
     
-    if(ans1 < ans2) parent[ans2] = i; // saving the path
+        if(ans1 < ans2) parent[ans2] = i; // saving the path
     	
 	return max(ans1, ans2);
 }
