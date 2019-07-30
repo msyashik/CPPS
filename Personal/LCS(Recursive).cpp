@@ -10,7 +10,7 @@ string a, b;
 int len_a, len_b;
 string ss = "";	
 
-int LCS(int i, int j)
+int LCS(int i, int j) // Calculating LCS length
 {
 	if(i == len_a || j == len_b) return 0;
 	if(dp[i][j] != -1) return dp[i][j];
@@ -26,7 +26,7 @@ int LCS(int i, int j)
 	return dp[i][j] = ans;
 }
 
-void printLCS(int i, int j)
+void printLCS(int i, int j) //Searching LCS string
 {
 	if(i == len_a || j == len_b)
 	{
