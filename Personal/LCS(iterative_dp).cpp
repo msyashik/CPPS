@@ -1,6 +1,6 @@
 //LCS
 //Iterative dp
-//Tushar Roy(https://www.youtube.com/watch?v=NnD96abizww)
+//Learned from Tushar Roy(https://www.youtube.com/watch?v=NnD96abizww)
 
 #include <bits/stdc++.h>
 
