@@ -42,6 +42,7 @@ void divisors(int n)
 	
 	for(int i = 0; i < prime.size() && prime[i] <= len; i++)
 	{
+		if(sieve[n] == 0) break;
 		if(n%prime[i] == 0)
 		{
 			int coun = 0;
@@ -50,6 +51,7 @@ void divisors(int n)
 				coun++;
 				n/=prime[i];
 			}
+			len = sqrt(n);
 			coun++;
 			total*= coun;
 		}
