@@ -1,3 +1,5 @@
+//https://forthright48.com/gcd-sum-function
+
 #include <bits/stdc++.h>
 
 using namespace std;
