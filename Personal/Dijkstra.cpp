@@ -1,63 +1,98 @@
-//Dijkstra
-//Learned from Shafayets Planet
-
 #include <bits/stdc++.h>
 
 using namespace std;
 
-#define SIZE 100 // Give your required value
+#define ll long long
+#define SIZE 100005
+#define inf 100000000
 
-vector<int>v[SIZE];
-int cost[SIZE][SIZE];
-int distt[SIZE];
-priority_queue<pair<int,int>>pq;
+int dist[SIZE]; // change the value of inf SIZE you want
+int path[SIZE];
 
-
-void dijkstra(int node)
+struct edges
 {
-	distt[node] = 0;
-	pq.push({0,node});
+	int v;
+	int w;
+};
+
+bool operator < (struct edges a, struct edges b)
+{
+	return a.w < b.w;
+}
+
+void dij(int node, priority_queue<edges>pq, vector<edges>v[])
+{
+	pq.push({node, 0});
 	
 	while(!pq.empty())
 	{
-		int u = pq.top().second;
-		int len = v[u].size();
+		edges top = pq.top();
 		pq.pop();
 		
+		int len = v[top.v].size();
 		for(int i = 0; i < len; i++)
 		{
-			int new_node = v[u][i];
+			edges nodd = v[top.v][i];
 			
-			if((distt[u] + cost[u][new_node]) < distt[new_node])
+			if((dist[top.v] +  nodd.w) < dist[nodd.v])
 			{
-				distt[new_node] = distt[u] + cost[u][new_node];
-				pq.push({distt[new_node], new_node});
-				
+				dist[nodd.v] = dist[top.v] + nodd.w;
+				pq.push(nodd);
+				path[nodd.v] = top.v;
 			}
 		}
-		
 	}
 }
 
 int main()
 {
-	int n, e, a, b;
+	int n, e, a, b, cost;
 	
-	cin >> n >> e;
+	scanf("%d %d", &n,&e);
+	
+	vector<edges>v[n+1];
+	priority_queue<edges>pq;
 	
 	for(int i = 1; i <= e; i++)
 	{
-		cin >> a >> b >> cost[a][b];
-		v[a].push_back(b);
+		scanf("%d %d %d", &a, &b, &cost);
+		v[a].push_back({b,cost});
+		v[b].push_back({a,cost}); //if the graph is undirected
 	}
 	
-	for(int i = 1; i <= n; i++) distt[i] = INT_MAX;
+	for(int i = 1; i <= n; i++) dist[i] = inf; // change the value of inf as you want
 	
-	dijkstra(1);
+	dist[1] = 0; // if 1 is the starting point
 	
-	for(int i = 1; i <= n; i++)
+	dij(1, pq, v); //if 1 is the starting point
+	
+	printf("%d\n", dist[n]); //distance of n from the starting point
+	
+	//path_printing
+	
+    vector<int>pathprint;	
+	
+	pathprint.push_back(n);
+	int m = n;
+	
+	while(1)
 	{
-		cout << distt[i] << endl;
+	    if(m == 1) break;
+	    else
+	    {
+			pathprint.push_back(path[m]);
+			m = path[m];
+		}	
 	}
+	reverse(pathprint.begin(), pathprint.end());
+	
+	int lenn = pathprint.size();
+	for(int i = 0; i < lenn; i++)
+	{
+		printf("%d ", pathprint[i]);
+	}
+	printf("\n");
+	
 	return 0;
 }
+
