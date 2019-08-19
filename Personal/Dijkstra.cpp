@@ -6,7 +6,7 @@ using namespace std;
 #define SIZE 100005
 #define inf 100000000
 
-int dist[SIZE]; // change the value of inf SIZE as you want
+int dist[SIZE]; // change the value of SIZE as you want
 int path[SIZE];
 
 struct edges
