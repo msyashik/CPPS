@@ -17,7 +17,7 @@ struct edges
 
 bool operator < (struct edges a, struct edges b)
 {
-	return a.w < b.w;
+	return a.w > b.w;
 }
 
 void dij(int node, priority_queue<edges>pq, vector<edges>v[])
