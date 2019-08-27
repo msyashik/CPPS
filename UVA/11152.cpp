@@ -1,7 +1,14 @@
 //https://www.mathopenref.com/triangleincircle.html
+
+
+//largest circle inside a triangle
 //The radius of the largest circle in a traingle is (2*a)/p
 //where a is the area of the triangle and p is the summation of the 3 sides of the triangle
+
+
 //https://www.quora.com/How-can-I-find-the-diameter-of-a-circle-with-a-triangle-inside
+//triangle inside a circle
+//if 3 sides of a triangle are given then the diameter of the circle is (a*b*c) / (2*area of triangle)
 
 #include <bits/stdc++.h>
 
