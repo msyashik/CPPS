@@ -1,3 +1,5 @@
+//https://www.geeksforgeeks.org/find-number-of-triangles-possible/
+
 #include <bits/stdc++.h>
 
 using namespace std;
