@@ -1,53 +1,26 @@
-//disjoint set union
+//dsu(cp-algo)
+int parent[100], siz[100];
 
-#include <bits/stdc++.h>
-
-using namespace std;
-
-int par[100];
-vector<int>vec[100];
-
-int fr(int r)
+void make_set(int v)
 {
-	if(par[r] == r) return r;
-	return par[r] = fr(par[r]);
+	parent[v] = v;
+	siz[v] = 1;
 }
 
-
-void unions(int a, int b)
+int find_set(int v)
 {
-	int u = fr(a);
-	int v = fr(b);
-	
-	if(u != v)
-	{
-		par[v] = u;
-		vec[u].push_back(v);
-		int len = vec[v].size();
-		for(int i = 0; i < len; i++)
-		{
-			par[vec[v][i]] = u;
-			vec[u].push_back(vec[v][i]);
-		}
-		
-	}
+	if(v == parent[v]) return v;
+	return parent[v] = find_set(parent[v]);
 }
 
-int main()
+void dsu(int a, int b)
 {
-    int n, e, a, b;
-    
-    cin >> n >> e;
-    
-    for(int i = 1; i <= n; i++) par[i] = i;
-    
-    for(int i = 1; i <= e; i++)
+    a = find_set(a);
+    b = find_set(b);
+    if(a != b)
     {
-		 cin >> a >> b;
-		 unions(a,b);
+		if(siz[a] < siz[b]) swap(a,b);
+		parent[b] = a;
+		siz[a] += siz[b];
 	}
-	
-	for(int i = 1; i <= n; i++) cout << par[i] << "\n";
-	
-    return 0;	
 }
