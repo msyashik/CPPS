@@ -58,6 +58,12 @@ void sg_dfs(int node)
 			if(a!=b) sg[a].push_back(b);
 			sg_dfs(child);
 		}
+		else
+		{
+			int a = comp[node];
+			int b = comp[child];
+			if(a!=b) sg[a].push_back(b);
+		}
 	}
 }
 int main()
