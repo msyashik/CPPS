@@ -85,5 +85,15 @@ int main()
 		scanf("%d", &arr[i]);
 	}
 	merge(1,1,n);
+	/*for(int i = 1; i <= 13; i++)
+	{
+		int len = tree[i].v.size();
+		cout << "Node " << i << ": ";
+		for(int j = 0;j < len ;j++)
+		{
+			cout << tree[i].v[j] << " ";
+		}
+		cout << endl;
+	}*/
 	return 0;
 }
