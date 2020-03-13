@@ -30,7 +30,9 @@ int split(int left, int right)
 	int ans = 100000;
 	for(int i = left; i <= right; i++)
 	{
-		if(func(left,i))
+		if(func(left,i)) // Checking if the range (left,i) is palindrome or not
+                         // if the range (left,i) is palindrome then we are calling
+                         // the range (i+1,right) 		
 		{
 			ans = min(ans,1 + split(i+1,right));
 		}
@@ -48,7 +50,9 @@ int main()
 	    scanf("%s", ch);
 	    int len = strlen(ch);
 	    memset(dp,-1,sizeof(dp)); 
-	    int ans = func(0,len-1);
+	    int ans = func(0,len-1); //at first we are calling the entire range so that
+	                             // if we call any range latter then we will get it
+	                             // in O(1) time. 
 	    memset(dp2,-1,sizeof(dp2));
 	    int total = split(0,len-1);
 	    printf("Case %d: %d\n",kase,total);         
