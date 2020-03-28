@@ -2,7 +2,7 @@ void init()
 {
 	for(ll k = 1; k <= 18; k++)
 	{
-		for(ll u = 1; u <= coun ;u++) // node = number of nodes in the graph
+		for(ll u = 1; u <= coun ;u++) // coun = number of nodes in the graph
 		{
 			ll dest = (1 << k);
 			if(lev[u]-dest < 0) continue;
