@@ -2,7 +2,6 @@
 
 using namespace std;
 
-map<string,int>mp;
 vector<int>v;
 vector<int>vv[105];
 int t, n, arr[20];
