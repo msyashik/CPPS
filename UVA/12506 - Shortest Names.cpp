@@ -6,7 +6,7 @@ using namespace std;
 #define LIM 1000005
 
 int idx = 0;
-int trie[LIM][30];      /// trie[u][d] u theke d hoye zei node e zawa zai
+int trie[LIM][30];     
 int flag[LIM],coun[LIM];
 
 void add(string s)
